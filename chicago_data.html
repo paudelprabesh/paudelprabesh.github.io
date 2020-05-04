@@ -59,13 +59,14 @@
 
 
         (function createMarkers() {
-            fetch('https://gist.githubusercontent.com/paudelprabesh/e2cadeb3b3695680fab428a0141ebc7a/raw/e4a73a3fb7bec67cb32e010f14f92cb7909bf577/prj3.json')
+            fetch('https://gist.githubusercontent.com/paudelprabesh/d0dbaaf2f3e214e40e7ae51edbd5e59e/raw/b96a4a93d318ad9aca3e251e42ac4f72840826f7/prj3.json')
                 .then(response => { return response.json() })
                 .then(markers => {
                     const keys = Object.keys(markers)
+
                     for (var i = 0; i < keys.length; i++) {
                         let chosen_address = markers[keys[i]]
-                        let [x, y] = chosen_address['latlng']
+                        let [[x, y]] = chosen_address['latlng']
                         addMarker(x, y, keys[i], chosen_address['num_tickets'])
                     }
                 })
